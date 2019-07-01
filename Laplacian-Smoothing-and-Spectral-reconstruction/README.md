@@ -1,10 +1,12 @@
-# An implementation of the Laplacian matrix computation, with different applications.
+# An implementation of the Laplace Beltrami computation, with different applications.
 
 ![](media/giphy.gif)
 
-An application that allows to align two point clouds of the same object in an interactive way, using [ICP](http://www-evasion.inrialpes.fr/people/Franck.Hetroy/Teaching/ProjetsImage/2007/Bib/besl_mckay-pami1992.pdf) [1].
-Implementation of the Iterative Closest Point algorithm, and the [Point-To-Plane](https://www.comp.nus.edu.sg/~lowkl/publications/lowk_point-to-plane_icp_techrep.pdf) [2] variant.
+Implementation of [Laplacian Mesh Processing](https://people.eecs.berkeley.edu/~jrs/meshpapers/Sorkine.pdf).
+Implementation of [Laplacien Mesh Spectral Reconstruction](https://members.loria.fr/Bruno.Levy/papers/Laplacian_SMI_2006.pdf).
+Implementation of [Implicit Laplacian Smoothing](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.2.5347&rep=rep1&type=pdf).
 
+Coded in C++, with the LibIGL library.
 
 ## Usage
 ### Dependencies
@@ -18,16 +20,11 @@ Run the ```Laplacian_processing_viewer``` target.
 Change the line ```string mesh_file_name``` with the right filenames of your point clouds, in main.cpp.
 
 ### Using the interface
-The libigl GUI menu has several options you can manipulate : 
-- Change the "ICP mode" slider in order to perfom point-to-point ICP (0) or point-to-plane ICP (1).
-- Click the "ICP step" button to perform one registration step of the algorithm.
-- Click the "ICP registration" button to perform the algorithm until convergence.
-- Change the values of "Max num iterations" and "Error threshold" to define the convergence stopping conditions.
-- You can roughly pre-align the point clouds by manipulating the "Rotation slider" and "Translation slider".
-
-
-## References
-[1] Paul J. Besl et N.D. McKay. A Method for Registration of 3-D Shapes. IEEE Trans. on Pattern Analysis and Machine Intelligence.
-
-[2] LOW, K.-L. 2004. Linear least-squares optimization for point-to- plane icp surface registration.
-Tech. rep., Chapel Hill, University of North Carolina.
+The libigl GUI menu I built has several options you can manipulate : 
+- Play with the "Curvature - Spectral reconstruction - Smoothing" slider to change the visualization mode : 
+0 : visualize the different curvatures - 1 : visualize spectral reconstruction - 2 : visualize mesh smoothing
+- If in  "Spectral reconstruction" mode, change the values of "Number of eigen vectors" to set the number of eigen vectors used for reconstruction
+- If in "Smoothing" mode, choose between "Explicit mode" and "Implicit mode", to perform explicit or implicit smoothing iterations.  
+- If in "Smoothing" mode : change the value of "Lambda explicit/implicit smoothing" to change the value of the smoothing parameter. Change the "Number of smoothing iterations" using the +/- buttons.
+- If in "Smoothing" mode : click "Smoothing iteration" to perform an iteration of the smoothing algorithm. Press "Reset" to go back to the initial state.
+- You can add Gaussian noise to the vertex positions before smoothing, by changing the value of "Amount of noise", and setting the "Add noise" slider to 1.

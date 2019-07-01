@@ -8,8 +8,9 @@ Implementation of the Iterative Closest Point algorithm, and the [Point-To-Plane
 
 ## Usage
 ### Dependencies
--You need the [LibIGL](https://github.com/libigl/libigl) library. Put the libigl source code folder two levels above this repository.
--You need the [ANN (Approximate Nearest Neighbor)](https://www.cs.umd.edu/~mount/ANN/) library. Put the ANN source code folder one level above this repository, or change the ```include_directories``` and ```link_directories``` of the CMake to the corresponding paths.
+Libraries needed : 
+- [LibIGL](https://github.com/libigl/libigl) . Put the libigl source code folder two levels above this repository.
+- [ANN](https://www.cs.umd.edu/~mount/ANN/) (Approximate Nearest Neighbor). Put the ANN source code folder one level above this repository, or change the ```include_directories``` and ```link_directories``` of the CMake to the corresponding paths.
 
 ### Building and running the code
 Build using CMake and the CMakeLists.txt provided.
